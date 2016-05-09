@@ -1,0 +1,143 @@
+
+#include <iostream>
+#include <string >
+using namespace std;
+
+int GetUserInput(int minimum, int maximum)
+{
+    int x;
+
+    cout << "Please enter a number between: "
+         << minimum << " and "
+         << maximum << ": ";
+    cin >> x;
+
+    while (x < minimum || x > maximum)
+    {
+        cout << "Invalid" << endl;
+        cout << "Please enter a number between: "
+             << minimum << " and "
+             << maximum << ": ";
+        cin >> x;
+    }
+
+    return x;
+}
+void DisplayMainManu()
+{
+    cout << endl;
+    cout << "-----------------\n";
+    cout << "1. Add class: \n";
+    cout << "2. Remove last class: \n";
+    cout << "3. update class: \n";
+    cout << "4. View all class: \n";
+    cout << "5. exit: \n";
+
+}
+
+void AddClass(string classTitle[10], int classStudent[10], int& classCount)
+{
+    if (classCount >= 10)
+    {
+        cout << "class is Full ";
+    }
+    else
+    {
+        cout << "please enter the class title: ";
+        cin >> classTitle[classCount];
+        cout << "Please the student count: ";
+        cin >> classStudent[classCount];
+
+        classCount++;
+    }
+
+}
+
+void RemoveLastClass(string classTitle[10], int classStudent[10],
+                     int& classCount)
+{
+    if (classCount <= 0)
+    {
+        cout << "you cannot remove the class";
+    }
+    else
+    {
+        classTitle[classCount] = "";
+        classStudent[classCount] = 0;
+
+        classCount--;
+    }
+}
+
+void UpdateClass(string classTitle[10], int classStudent[10],
+                 int& classCount)
+{
+    for (int i = 0; i < classCount; i++)
+    {
+        cout << i << " "  << classTitle[classCount] << " " << classStudent[classCount];
+    }
+    int updateclass;
+    cout << "which class you would like to update: ";
+    cin >> updateclass;
+    cout << "PLEASE ENTER THE CLASS title: ";
+    cin >> classTitle[updateclass];
+    cout << "please enter the class number of students: ";
+    cin >> classStudent[updateclass];
+}
+
+
+
+
+void ViewAllClass(string classTitle[10], int classStudent[10],
+                  int& classCount)
+{
+    cout << endl << "ALL CLASSES: " << endl;
+    for (int i = 0; i < classCount; i++)
+    {
+        cout << i << ": " << classTitle[i] << " " << classStudent[i];
+    }
+}
+
+int main()
+{
+    string classTitle[10];
+    int classStudent[10];
+    int classCount = 0;
+    bool done = false;
+
+    while (!done)
+    {
+        DisplayMainManu();
+        int choice;
+        choice = GetUserInput(1,5);
+
+        if (choice == 1)
+        {
+            AddClass(classTitle, classStudent, classCount);
+
+        }
+        else if (choice == 2)
+        {
+            RemoveLastClass(classTitle, classStudent, classCount);
+
+        }
+        else if (choice == 3)
+        {
+            UpdateClass(classTitle, classStudent, classCount);
+        }
+        else if (choice == 4)
+        {
+            ViewAllClass(classTitle, classStudent, classCount);
+
+        }
+        else
+        {
+            done = true;
+        }
+
+    }
+
+
+    return 0;
+}
+
