@@ -1,0 +1,45 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+ int num1;
+ int den1;
+ int num2;
+ int den2;
+ int product;
+ int add;
+ int division;
+
+ cout << "enter num1 ";
+ cin >> num1;
+
+ cout << "enter den1 ";
+ cin >> den1;
+
+ cout << "enter num2 ";
+ cin >> num2;
+
+ cout << "enter den2 ";
+ cin >> den2;
+
+cout << "the product is \n";
+
+ cout << num1 * num2 << "/" <<den1*den2;
+ cout << endl;
+
+ cout << "the division is  \n";
+  cout << num1 *den2 << "/" << num2 *den1 << endl;
+
+
+ cout << "the addition is \n";
+ cout << num1 * den2 + num2* den1 << "/" << den1 *den2;
+
+
+
+
+
+
+    return 0;
+}
