@@ -1,0 +1,226 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+struct Color {
+	string color;
+	int r, g, b;
+};
+
+struct Type {
+	string name;
+
+};
+struct Clothing {
+	string name;
+	Color* ptrColor;
+	Type* ptrType;
+};
+
+struct Outfit {
+	Outfit();
+	string name;
+	Clothing* ptrHead;
+	Clothing* ptrTop;
+	Clothing* ptrBottom;
+
+};
+
+Outfit::Outfit(){
+	ptrHead = NULL;
+	ptrTop = NULL;
+	ptrBottom = NULL;
+
+
+}
+
+
+int main() {
+	Type allType[3];
+	Color allColor[8];
+	Clothing allClothes[9];
+
+	allType[0].name = "Head";
+	allType[1].name = "Top";
+	allType[2].name = "Bottom";
+
+	allColor[0].color = "red";
+	allColor[0].r = 255;
+	allColor[0].g = 0;
+	allColor[0].b = 0;
+
+	allColor[1].color = "green";
+	allColor[1].r = 0;
+	allColor[1].g = 255;
+	allColor[1].b = 0;
+
+	allColor[2].color = "blue";
+	allColor[2].r = 0;
+	allColor[2].g = 0;
+	allColor[2].b = 255;
+
+	allColor[3].color = "yellow";
+	allColor[3].r = 255;
+	allColor[3].g = 255;
+	allColor[3].b = 0;
+
+	allColor[4].color = "magenta";
+	allColor[4].r = 255;
+	allColor[4].g = 0;
+	allColor[4].b = 255;
+
+	allColor[5].color = "cyan";
+	allColor[5].r = 0;
+	allColor[5].g = 255;
+	allColor[5].b = 255;
+
+	allColor[6].color = "white";
+	allColor[6].r = 255;
+	allColor[6].g = 255;
+	allColor[6].b = 255;
+
+	allColor[7].color = "black";
+	allColor[7].r = 0;
+	allColor[7].g = 0;
+	allColor[7].b = 0;
+
+
+
+	allClothes[0].name = "Baseball Cap";
+	allClothes[0].ptrColor = 0;
+	allClothes[0].ptrType = 0;
+
+	allClothes[1].name = "top hat";
+	allClothes[1].ptrColor = &allColor[1];
+	allClothes[1].ptrType = &allType[0];
+
+	allClothes[2].name = "Scarf";
+	allClothes[2].ptrColor = &allColor[2];
+	allClothes[2].ptrType = &allType[0];
+
+	allClothes[3].name = "T-Short";
+	allClothes[3].ptrColor = &allColor[3];
+	allClothes[3].ptrType = &allType[1];
+
+	allClothes[4].name = "Blouse";
+	allClothes[4].ptrColor = &allColor[4];
+	allClothes[4].ptrType = &allType[1];
+
+	allClothes[5].name = "Button-up Shirt";
+	allClothes[5].ptrColor = &allColor[5];
+	allClothes[5].ptrType = &allType[1];
+
+	allClothes[6].name = "jeans";
+	allClothes[6].ptrColor = &allColor[6];
+	allClothes[6].ptrType = &allType[2];
+
+	allClothes[7].name = "skirt";
+	allClothes[7].ptrColor = &allColor[7];
+	allClothes[7].ptrType = &allType[2];
+
+	allClothes[8].name = "Cargo Shorts";
+	allClothes[8].ptrColor = &allColor[8];
+	allClothes[8].ptrType = &allType[2];
+
+	Outfit outfit;
+
+	bool done;
+	done = true;
+	while (done)
+	{
+
+		for (int i = 0; i < 9; i++)
+		{
+			cout << "name " << allClothes[i].name << endl;
+			cout << "color " << allClothes[i].ptrColor->color;
+			cout << "type " << allClothes[i].ptrType->name;
+		}
+		cout << "Pleae  choose the outfit \n";
+		int choice;
+		cin >> choice;
+
+		if (choice < 9 && choice < 0)
+		{
+			done = true;
+		}
+		else
+		{
+			outfit.ptrHead = &allClothes[choice];
+			outfit.ptrBottom = &allClothes[choice];
+			outfit.ptrTop = &allClothes[choice];
+		}
+
+		cout << "Please enter the name of outfit \n";
+		string name;
+		cin >> name;
+
+		ofstream outfito;
+		outfito.open("outfit.txt");
+		outfito << "the name of outfit is \n";
+		outfito << name;
+
+		if (outfit.ptrBottom = NULL)
+		{
+			outfito << "Bottem Nude \n";
+		}
+		else
+		{
+			for (int j = 0; j < 9; j++)
+			{
+				outfito << "name " << allClothes[j].name << endl;
+				outfito << "r " << allClothes[j].ptrColor->r;
+				outfito << "g " << allClothes[j].ptrColor->g;
+				outfito << "b " << allClothes[j].ptrColor->b;
+			}
+		}
+
+		if (outfit.ptrTop = NULL)
+		{
+			outfito << " top nude \n";
+		}
+		else
+		{
+			for (int k = 0; k < 9; k++)
+			{
+				outfito << "name " << allClothes[k].name << endl;
+				outfito << "r " << allClothes[k].ptrColor->r;
+				outfito << "g " << allClothes[k].ptrColor->g;
+				outfito << "b " << allClothes[k].ptrColor->b;
+			}
+		}
+
+
+		if (outfit.ptrHead = NULL)
+		{
+			outfito << " Head NUDE \n";
+		}
+		else
+		{
+			for (int l = 0; l < 9; l++)
+			{
+				outfito << "name " << allClothes[l].name << endl;
+				outfito << "r " << allClothes[l].ptrColor->r;
+				outfito << "g " << allClothes[l].ptrColor->g;
+				outfito << "b " << allClothes[l].ptrColor->b;
+			}
+		}
+
+		outfito.close();
+
+		outfito << "would you like to creat the other outit object (y\n)";
+		char choic;
+		cin >> choic;
+
+		if (choic = 'y')
+		{
+			continue;
+		}
+		else
+		{
+			break;
+		}
+	}
+	return  0;
+}
+
+
