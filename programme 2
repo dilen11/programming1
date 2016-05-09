@@ -1,0 +1,82 @@
+# programming1#include <iostream>
+#include <string>
+#include <stdlib.h>
+
+using namespace std;
+
+void drawSeparator (int length)
+{
+	for (int i = 0; i < length; i++)
+	{
+		cout << "-";
+	} cout << endl;
+}
+
+void DisplayMenu(int round, int playerHP, int enemyHP)
+{
+	drawSeparator(20);
+	cout << "round " << round << endl;
+	cout << "playerHP" << playerHP << endl;
+	cout << "enemyHP" << enemyHP << endl;
+	cout << "1.attack" << endl;
+	cout << "2. Heal" << endl;
+	
+}
+
+int GetChoice(int minimum, int maximum) {
+	int choice;
+	cout <<  "INPUT: ";
+	cin >> choice;
+	while (choice < minimum || choice > maximum)
+	{
+		cout << " Invalid Choive please select between "
+		<< minimum << "and " << maximum << endl;
+		cout << "what do you do ";
+		cin >> choice;
+	}
+	return choice;
+}
+
+int GetAttack()
+{
+	int randomNumber = rand() % 10;
+
+	return randomNumber ;
+}
+
+int GetHealing()  {
+	int randomNumber = rand() % 7;
+	
+	return randomNumber;
+}
+
+
+using namespace std;
+
+int main()
+{
+	int playerHP = 100;
+	int enemyHP = 100;
+	int round = 1;
+	bool done = false;
+	while (!done )
+	{ 
+
+		DisplayMenu(round, playerHP, enemyHP);
+		int x = GetChoice(1, 2);
+		if (x == 1){
+			GetAttack();
+			cout << "your attack enemy for  3 damage  " << endl;
+			enemyHP = enemyHP - 3;
+		}
+		else if (x == 2) {
+			GetHealing();
+			cout << "Enemy heals themself for 2 point" << GetHealing ()  << endl;
+			playerHP = playerHP + 2;
+            }
+	}
+
+
+
+	return 0;
+}
