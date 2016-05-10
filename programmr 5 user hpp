@@ -1,0 +1,21 @@
+#ifndef post.hpp_h
+#define post.hpp_h
+#include <string>
+#include <iostream>
+using namespace std;
+
+class Post {
+
+private: string m_contents;
+		 int m_autherID;
+
+public: Post();
+		Post(const string & m_contents, int autherID);
+		void SetContents(const string  &  contents);
+		string GetContains();
+		void SetAutherID(int ID);
+		int GetAutherID();
+	};
+
+
+#endif
