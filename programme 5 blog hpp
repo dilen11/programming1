@@ -1,0 +1,34 @@
+#ifndef Blog_H;
+#define Blopg_h;
+#include "user.h"
+#include "post.hpp"
+#include <vector>
+
+
+class Blog {
+
+private:  vector<User> m_userList;
+		  int m_currentUser;
+		  vector<Post> m_postList;
+		  void LoadFiles();
+		  void SaveFiles();
+		  void MainMenu();
+		  void Register();
+		  void Login();
+		  void UserMainMenu();
+		  void AddPost();
+		  void Wall();
+		  void Search();
+
+
+
+public:
+	void Run();
+};
+
+
+
+
+
+
+#endif
