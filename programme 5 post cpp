@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string>
+#include "Post.hpp"
+using namespace std;
+
+Post::Post() {
+
+}
+
+void Post::SetContents(const string&  contents){
+	m_contents = contents;
+}
+string Post::GetContains()
+{
+	return m_contents;
+}
+void Post::SetAutherID(int ID){
+	m_autherID = ID;
+}
+
+
+Post::Post(const string& contents, int autherID) {
+	SetContents(contents);
+	SetAutherID( 18);
+
+}
